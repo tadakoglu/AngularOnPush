@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+@mixin child {
+        margin: 10px;
+        border:2px solid;
+        border-radius: 50px;
+        background-color: rgb(220, 193, 193);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.row{
+        display: flex;
+        justify-content: center;
+        
+}
+.fireH{
+        margin: 5px 0 5px 0
+}
