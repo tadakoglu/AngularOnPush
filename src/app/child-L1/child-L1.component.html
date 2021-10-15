@@ -3,6 +3,13 @@
 </p>
 <button (click)="click()">Click</button>
 
-<div *ngFor="let fire of fires">
+<div *ngFor="let fire of fires" >
   <h6 class="fireH">{{fire}}</h6>
+</div>
+{{inputElL1?.x}}
+
+
+<div class="row">
+  <app-child-L1-L1 [inputElL1L1]="inputElL1"></app-child-L1-L1>
+  <app-child-L1-R1 [inputElL1R1]="inputElL1"></app-child-L1-R1>
 </div>

@@ -1,4 +1,5 @@
-import { AfterViewChecked, ChangeDetectionStrategy, Component, DoCheck, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-child-L1',
@@ -6,13 +7,13 @@ import { AfterViewChecked, ChangeDetectionStrategy, Component, DoCheck, OnInit }
   styleUrls: ['./child-L1.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChildL1Component implements OnInit, DoCheck, AfterViewChecked {
+export class ChildL1Component implements DoCheck, AfterViewChecked,OnChanges {
 
+  @Input() inputElL1: any
   fires: string[] = []
-  constructor() { }
   ngAfterViewChecked(): void {
     let f = this.fires.slice()
-    f.push("ngAfterViewInit fired");
+    f.push("ngAfterViewChecked fired");
     this.fires = f;
   }
   ngDoCheck(): void {
@@ -20,12 +21,15 @@ export class ChildL1Component implements OnInit, DoCheck, AfterViewChecked {
     f.push("ngDoCheck fired");
     this.fires = f;
   }
+  ngOnChanges(){
+    let f = this.fires.slice()
+    f.push("ngOnChanges fired");
+    this.fires = f;
+  }
   click(){
     
   }
 
-  ngOnInit() {
-  }
 
 }
 
