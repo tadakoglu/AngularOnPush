@@ -1,5 +1,6 @@
-import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
+import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+import { interval, timer } from 'rxjs';
+import highlight from '../global/highlight';
 
 @Component({
   selector: 'app-child-L1',
@@ -7,8 +8,8 @@ import { timer } from 'rxjs';
   styleUrls: ['./child-L1.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChildL1Component implements DoCheck, AfterViewChecked,OnChanges {
-
+export class ChildL1Component implements DoCheck, AfterViewChecked, OnChanges, OnInit {
+  
   @Input() inputElL1: any
   fires: string[] = []
   ngAfterViewChecked(): void {
@@ -21,14 +22,33 @@ export class ChildL1Component implements DoCheck, AfterViewChecked,OnChanges {
     f.push("ngDoCheck fired");
     this.fires = f;
   }
-  ngOnChanges(){
+  ngOnChanges() {
     let f = this.fires.slice()
     f.push("ngOnChanges fired");
     this.fires = f;
   }
-  click(){
-    
+  click() {
+ 
   }
+  constructor(private cdr: ChangeDetectorRef, public el:ElementRef) {}
+  ngOnInit(): void {
+    interval(1000).subscribe(val => {
+      this.inputElL1 = {x:'TAYFUN' + val}
+      console.log(val)
+     // this.cdr.markForCheck()
+    })
+  }
+  clickMarkForCheck(){
+    this.cdr.markForCheck();
+  }
+
+  clickCD() {
+    this.cdr.detectChanges();
+  }
+
+  check(){
+    highlight(this.el);   
+   }
 
 
 }

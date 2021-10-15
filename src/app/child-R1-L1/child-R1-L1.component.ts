@@ -1,4 +1,5 @@
-import { AfterViewChecked, ChangeDetectionStrategy, Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, Component, DoCheck, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+import highlight from '../global/highlight';
 
 @Component({
   selector: 'app-child-R1-L1',
@@ -11,7 +12,7 @@ export class ChildR1L1Component implements OnInit, DoCheck, AfterViewChecked, On
 
   @Input() inputElR1L1: any
   fires: string[] = []
-  constructor() { }
+  constructor(public el:ElementRef) { }
   ngAfterViewChecked(): void {
     let f = this.fires.slice()
     f.push("ngAfterViewChecked fired");
@@ -34,4 +35,7 @@ export class ChildR1L1Component implements OnInit, DoCheck, AfterViewChecked, On
   ngOnInit() {
   }
 
+ check(){
+    highlight(this.el);   
+   }
 }

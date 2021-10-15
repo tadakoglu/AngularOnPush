@@ -1,14 +1,14 @@
 <p>
-  child-R1 works!
+  child-R1 works! {{check()}}
 </p>
 <button (click)="click()">Click</button>
-
 <div *ngFor="let fire of fires">
   <h6 class="fireH">{{fire}}</h6>
 </div>
-{{inputElR1?.x}}
+{{inputElR1?.x}} 
 
 <div class="row">
   <app-child-R1-L1 [inputElR1L1]="inputElR1"></app-child-R1-L1>
   <app-child-R1-R1 [inputElR1R1]="inputElR1"></app-child-R1-R1>
 </div>
+

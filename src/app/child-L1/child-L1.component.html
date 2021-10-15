@@ -1,11 +1,12 @@
 <p>
-  child-L1 works!
+  child-L1 works!  {{check()}}
 </p>
 <button (click)="click()">Click</button>
-
+<button (click)="clickCD()">Click ChangeDetection</button>
+<button (click)="clickMarkForCheck()">Click MarkForCheck</button>
 <div *ngFor="let fire of fires" >
   <h6 class="fireH">{{fire}}</h6>
-</div>
+</div> 
 {{inputElL1?.x}}
 
 
@@ -13,3 +14,4 @@
   <app-child-L1-L1 [inputElL1L1]="inputElL1"></app-child-L1-L1>
   <app-child-L1-R1 [inputElL1R1]="inputElL1"></app-child-L1-R1>
 </div>
+
