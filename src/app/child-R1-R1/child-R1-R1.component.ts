@@ -34,9 +34,27 @@ export class ChildR1R1Component implements OnInit, DoCheck, AfterViewChecked, On
 
   }
 
+  purePipeVal:any
+  impurePipeVal:any
+
   ngOnInit() {
    
   }
+  setValue(){
+    this.purePipeVal = 3
+    this.impurePipeVal =3
+  }
+  val = {x:'test'} // use for same ref
+  setObject(){
+    this.purePipeVal = {x:'pure'}
+    this.impurePipeVal = {x:'impure'}
+  }
+  setObjectProp(){
+    this.purePipeVal.x = 'pure: x property changed'
+    this.impurePipeVal.x = 'impure: x property changed'
+
+  }
+  
 
    check(){
     highlight(this.el);   

@@ -10,3 +10,11 @@
 {{inputElR1R1?.x}} 
 
 
+
+pipes
+<h6>purePipeVal: {{purePipeVal| purePipe}}</h6>
+<h6>impurePipeVal:  {{impurePipeVal | impurePipe}}</h6>
+
+<button (click)="setValue()">set val</button>
+<button (click)="setObject()">set obj</button>
+<button (click)="setObjectProp()">set object prop</button>

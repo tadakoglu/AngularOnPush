@@ -10,6 +10,8 @@ import { ChildL1L1Component } from './child-L1-L1/child-L1-L1.component';
 import { ChildL1R1Component } from './child-L1-R1/child-L1-R1.component';
 import { ChildR1L1Component } from './child-R1-L1/child-R1-L1.component';
 import { ChildR1R1Component } from './child-R1-R1/child-R1-R1.component';
+import { PurePipePipe } from './pipes/purePipe.pipe';
+import { ImpurePipePipe } from './pipes/impurePipe.pipe';
 
 @NgModule({
   declarations: [						
@@ -19,7 +21,9 @@ import { ChildR1R1Component } from './child-R1-R1/child-R1-R1.component';
       ChildL1L1Component,
       ChildL1R1Component,
       ChildR1L1Component,
-      ChildR1R1Component
+      ChildR1R1Component,
+      PurePipePipe, 
+      ImpurePipePipe
    ],
   imports: [
     BrowserModule,
