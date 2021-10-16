@@ -9,7 +9,7 @@ import highlight from '../global/highlight';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildL1Component implements DoCheck, AfterViewChecked, OnChanges, OnInit {
-  
+  @Input() inputAllElNumber = 0
   @Input() inputElL1: any
   fires: string[] = []
   ngAfterViewChecked(): void {
@@ -30,13 +30,20 @@ export class ChildL1Component implements DoCheck, AfterViewChecked, OnChanges, O
   click() {
  
   }
+  time:any
+  emit(){
+    
+      this.time = 9999+ 'father get'
+      
+    
+  }
   constructor(private cdr: ChangeDetectorRef, public el:ElementRef) {}
   ngOnInit(): void {
-    interval(1000).subscribe(val => {
-      this.inputElL1 = {x:'TAYFUN' + val}
-      console.log(val)
-     // this.cdr.markForCheck()
-    })
+    // interval(1000).subscribe(val => {
+    //   this.inputElL1 = {x:'TAYFUN' + val}
+    //   console.log(val)
+    //  // this.cdr.markForCheck()
+    // })
   }
   clickMarkForCheck(){
     this.cdr.markForCheck();

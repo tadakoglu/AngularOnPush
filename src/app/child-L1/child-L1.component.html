@@ -9,9 +9,10 @@
 </div> 
 {{inputElL1?.x}}
 
-
+inputelNUmber={{inputAllElNumber}}<br>
+time:{{time}}
 <div class="row">
-  <app-child-L1-L1 [inputElL1L1]="inputElL1"></app-child-L1-L1>
-  <app-child-L1-R1 [inputElL1R1]="inputElL1"></app-child-L1-R1>
+  <app-child-L1-L1 [inputElL1L1]="inputElL1" ></app-child-L1-L1>
+  <app-child-L1-R1 [inputElL1R1]="inputElL1" (event)="emit()" ></app-child-L1-R1>
 </div>
 

@@ -1,4 +1,4 @@
-import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { interval, timer } from 'rxjs';
 import highlight from '../global/highlight';
 
@@ -13,6 +13,7 @@ import highlight from '../global/highlight';
 export class ChildL1R1Component implements OnInit, DoCheck, AfterViewChecked, OnChanges {
   @Input() inputElL1R1: any
   fires: string[] = []
+  normalProp:string = ''
   ngAfterViewChecked(): void {
     let f = this.fires.slice()
     f.push("ngAfterViewChecked fired");
@@ -29,9 +30,9 @@ export class ChildL1R1Component implements OnInit, DoCheck, AfterViewChecked, On
     this.fires = f;
   }
   click() {
-
+    this.inputElL1R1.x ='osman'
   }
-  time=0
+  time:any
 
   constructor(private cdr: ChangeDetectorRef, public el:ElementRef) {}
 
@@ -41,15 +42,30 @@ export class ChildL1R1Component implements OnInit, DoCheck, AfterViewChecked, On
   clickMarkForCheck(){
     this.cdr.markForCheck();
   }
-
-
+  
+  
+  clickSubscribe(){ // (click) event will fire
+    timer(2000).subscribe(val=>{
+      this.time = 100
+      this.cdr.markForCheck() // async will auto call this and unsubscribe also., it is a great choice for onpush
+    })
+  }
   ngOnInit() {
     
-    // interval(1000).subscribe(val=>{
-    //   this.time=val;
-    //   //this.cdr.markForCheck(); // use markforcheck with checkonce stragey
-     
-    //   })
+    // interval(1000).subscribe(val => {
+      
+    // })
+  }
+  
+  @Output()
+  event = new EventEmitter<void>()
+
+  emit(){
+   setTimeout(() => {
+    this.event.next()
+    //this.time = 'testl1r1ok'
+   }, 2000);
+   
   }
 
   check(){

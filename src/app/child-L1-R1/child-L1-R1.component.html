@@ -4,9 +4,12 @@
 <button (click)="click()">Click</button>
 <button (click)="clickCD()">ChangeDetection</button>
 <button (click)="clickMarkForCheck()">Click MarkForCheck</button>
+<button (click)="emit()">Event Emitter</button>
+<button (click)="clickSubscribe()">Subscribe-  ((click) event will fire this)</button>
  <div *ngFor="let fire of fires">
   <h6 class="fireH">{{fire}}</h6>
 </div>
+time:{{time}}<br>
 
  {{inputElL1R1?.x}}
 

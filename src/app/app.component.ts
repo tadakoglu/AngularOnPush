@@ -12,10 +12,12 @@ import highlight from './global/highlight';
 export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
   title = 'OnPushTest';
   fires: string[] = []
+  allElNumber = 0
   @Input() allEl: any = { x: 'Tayfun' }
   constructor(private cdr: ChangeDetectorRef, 
     public el: ElementRef, private appRef: ApplicationRef) {
   }
+  
   ngAfterViewChecked(): void {
     let f = this.fires.slice()
     f.push("ngAfterViewChecked fired");
@@ -27,7 +29,8 @@ export class AppComponent implements OnInit, DoCheck, AfterViewChecked {
     this.fires = f;
   }
   click() {
-
+    //this.allEl = {x:'osman'}
+    this.allElNumber = 55555
   }
   clickCD() {
     this.cdr.detectChanges()
