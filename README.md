@@ -6,7 +6,7 @@ if the input reference is same of a on push component(for example, parent change
 then Angular won't check subtrees of that component, so that means skipping many components views' below change detection operation.
 If input reference changes, then Angular will check this components views for change detection(rendering control),and there goes by to other child components if only input ref changes.
 
-CD will fill either input reference changes of an object or only value-type changes(not in object).
+CD(tick) fire fill either input reference changes of an object or only value-type changes(not in object).
 
 Angular change detection center/AppComponent.Tick() will skip checking these components's views 
 
